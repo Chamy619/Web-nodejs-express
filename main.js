@@ -1,3 +1,29 @@
+const express = require("express");
+const app = express();
+const url = require("url");
+const topic = require("./lib/topic");
+const author = require("./lib/author");
+const bodyParser = require("body-parser");
+const compression = require("compression");
+const topicRouter = require("./lib/topic_route");
+
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(compression());
+
+app.use("/", topicRouter);
+
+app.use(function (req, res, next) {
+  res.status(404).send("Sorry can't find that!");
+});
+
+app.use(function (err, req, res, next) {
+  console.error(err.stack);
+  res.status(500).send("Something broke!");
+});
+
+app.listen(3000);
+
+/*
 var http = require('http');
 var url = require('url');
 var topic = require('./lib/topic');
@@ -45,3 +71,4 @@ var app = http.createServer(function(request,response){
     }
 });
 app.listen(3000);
+*/
