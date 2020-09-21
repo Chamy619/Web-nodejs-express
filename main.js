@@ -4,6 +4,7 @@ const compression = require("compression");
 const topicRouter = require("./lib/topic_route");
 const authorRouter = require("./lib/author_route");
 const loginRouter = require("./lib/login");
+const logoutRouter = require("./lib/logout");
 const helmet = require("helmet");
 
 app.use(helmet());
@@ -11,6 +12,7 @@ app.use(compression());
 
 app.use("/", topicRouter);
 app.use("/login", loginRouter);
+app.use("/logout", logoutRouter);
 app.use("/author", authorRouter);
 
 app.use(function (req, res, next) {
