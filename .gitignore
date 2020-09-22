@@ -1,1 +1,2 @@
-node_modules
+# node_module 디렉토리 제외 #
+node_modules/
