@@ -10,6 +10,12 @@ const helmet = require("helmet");
 app.use(helmet());
 app.use(compression());
 
+app.all("/*", function (req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "X-Requested-With");
+  next();
+});
+
 app.use("/", topicRouter);
 app.use("/login", loginRouter);
 app.use("/logout", logoutRouter);

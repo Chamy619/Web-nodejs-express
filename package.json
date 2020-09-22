@@ -22,6 +22,8 @@
     "helmet": "^4.1.1",
     "mysql": "^2.18.1",
     "nodemon": "^2.0.4",
+    "passport": "^0.4.1",
+    "passport-local": "^1.0.0",
     "pm2": "^4.4.1",
     "sanitize-html": "^1.27.4"
   }
